@@ -1,0 +1,10 @@
+{
+    "env": {
+        "jest": true
+    },
+    "plugins": ["jest"],
+    "rules": {
+        "func-names": "off",
+        "jest/no-alias-methods": "off"
+    }
+}
