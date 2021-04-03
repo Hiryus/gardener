@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const commit = require('./commit');
 const { HumanReadableError } = require('./errors');
 const update = require('./update');

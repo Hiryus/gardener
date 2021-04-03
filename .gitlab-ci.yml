@@ -1,0 +1,39 @@
+image: node:latest
+
+before_script:
+- npm ci
+
+stages:
+- prepare
+- test
+- release
+
+update:
+  stage: prepare
+  only:
+  - schedule
+  script:
+  - npm start update
+  artifacts:
+    expire_in: 1 day
+    paths:
+    - package.json
+    - package-lock.json
+
+lint:
+  stage: test
+  script:
+  - npm run lint
+
+test:
+  stage: test
+  script:
+  - npm run test
+
+release:
+  stage: release
+  only:
+  - master
+  script:
+  - npm start commit
+  - npx semantic-release

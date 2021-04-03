@@ -2,11 +2,13 @@
   "name": "@hiryus-org/gardener",
   "version": "1.0.0",
   "description": "Automatically update dependencies.",
-  "main": "index.js",
+  "bin": {
+    "gardener": "./sources/cli.js"
+  },
   "scripts": {
     "coverage": "jest --coverage",
     "lint": "eslint sources tests",
-    "start": "node sources/main",
+    "start": "node sources/cli",
     "test": "jest"
   },
   "devDependencies": {
@@ -27,5 +29,8 @@
     "update"
   ],
   "author": "Hiryus",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
 }

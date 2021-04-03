@@ -84,7 +84,7 @@ stages:
 update:
   stage: update
   script:
-  - npx gardener update
+  - gardener update
   artifacts:
     expire_in: 1 day
     paths:
@@ -104,7 +104,7 @@ test:
 commit:
   stage: commit
   script:
-  - npx gardener commit
+  - gardener commit
 ```
 
 
