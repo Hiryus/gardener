@@ -1,3 +1,10 @@
+## [1.0.5](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.4...v1.0.5) (2021-04-06)
+
+
+### Bug Fixes
+
+* npm outdated throwing an error ([11746be](https://gitlab.com/hiryus-utils/gardener/commit/11746be822e79eb20e20092d32b50bee8908cc83))
+
 ## [1.0.4](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.3...v1.0.4) (2021-04-06)
 
 
