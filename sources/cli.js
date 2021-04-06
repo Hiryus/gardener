@@ -10,7 +10,7 @@ const params = {
 
     message: 'chore(deps): dependencies update [skip ci]',
     username: 'gardener-bot',
-    email: '',
+    email: '<>',
 };
 
 function parseValue(arg) {
