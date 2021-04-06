@@ -1,0 +1,6 @@
+.gitlab-ci.yml
+.eslintrc.json
+.releaserc.json
+
+tests/
+jest.config.js
