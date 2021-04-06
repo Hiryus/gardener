@@ -30,6 +30,7 @@
   ],
   "author": "Hiryus",
   "license": "ISC",
+  "repository": "github:Hiryus/gardener",
   "publishConfig": {
     "access": "public"
   }
