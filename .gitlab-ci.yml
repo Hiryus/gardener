@@ -36,4 +36,4 @@ release:
   - master
   script:
   - npm start commit
-  - npx semantic-release
+  - npx semantic-release --repository-url=$(git remote get-url origin)
