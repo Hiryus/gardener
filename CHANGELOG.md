@@ -1,3 +1,10 @@
+# [1.1.0](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.5...v1.1.0) (2021-04-06)
+
+
+### Features
+
+* cleanup npm package archive ([035176e](https://gitlab.com/hiryus-utils/gardener/commit/035176e3ee6c09dce4cbbda355d1ce2e52487aea))
+
 ## [1.0.5](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.4...v1.0.5) (2021-04-06)
 
 
