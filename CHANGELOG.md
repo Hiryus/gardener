@@ -1,3 +1,10 @@
+## [1.0.4](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.3...v1.0.4) (2021-04-06)
+
+
+### Bug Fixes
+
+* add repository to package.json ([67282d5](https://gitlab.com/hiryus-utils/gardener/commit/67282d593fb18fa38e7c5ad90db9767117d53775))
+
 ## [1.0.3](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.2...v1.0.3) (2021-04-06)
 
 
