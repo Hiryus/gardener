@@ -1,3 +1,10 @@
+## [1.0.2](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.1...v1.0.2) (2021-04-06)
+
+
+### Bug Fixes
+
+* git commit author ([7a6174a](https://gitlab.com/hiryus-utils/gardener/commit/7a6174ace358e863751cbb7fddd7b36c55c6eb8a))
+
 ## [1.0.1](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.0...v1.0.1) (2021-04-06)
 
 
