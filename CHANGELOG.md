@@ -1,3 +1,10 @@
+## [1.0.3](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.2...v1.0.3) (2021-04-06)
+
+
+### Bug Fixes
+
+* git commit author default email ([b0dde4d](https://gitlab.com/hiryus-utils/gardener/commit/b0dde4d98c9d5f814f7b77c7501eb30f6ff2e35c))
+
 ## [1.0.2](https://gitlab.com/hiryus-utils/gardener/compare/v1.0.1...v1.0.2) (2021-04-06)
 
 
