@@ -10,7 +10,7 @@ module.exports = function commit(params) {
     console.log('Dependencies update detected, committing packages changes...');
 
     cp.execSync('git add package.json package-lock.json');
-    cp.execSync(`git commit --message "${params.message}" --author="${params.username} <${params.email}>"`);
+    cp.execSync(`git commit --message "${params.message}" --author "${params.username} <${params.email}>"`);
 
     const hash = cp.execSync('git log --format="%H" -n 1', { encoding: 'utf8' });
 
