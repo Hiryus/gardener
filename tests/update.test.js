@@ -12,9 +12,9 @@ const spy = {
             .mockName('console.error'),
     },
     cp: {
-        execSync: jest.spyOn(cp, 'execSync')
+        spawnSync: jest.spyOn(cp, 'spawnSync')
             .mockImplementation()
-            .mockName('cp.execSync'),
+            .mockName('cp.spawnSync'),
     },
     fs: {
         readFileSync: jest.spyOn(fs, 'readFileSync')
@@ -67,7 +67,7 @@ describe('update', () => {
 
     it('should bump dependencies versions', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue(JSON.stringify(DEFAULT_NPM_OUTDATED));
+        spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
             ignoreVersions: [],
@@ -93,7 +93,7 @@ describe('update', () => {
 
     it('should only change package.json dependencies and leave other keys unchanged', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue(JSON.stringify(DEFAULT_NPM_OUTDATED));
+        spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
             ignoreVersions: [],
@@ -107,7 +107,7 @@ describe('update', () => {
 
     it('should do nothing if there is no new update', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue('{}');
+        spy.cp.spawnSync.mockReturnValue({ stdout: '{}' });
 
         update({
             ignoreVersions: [],
@@ -119,7 +119,7 @@ describe('update', () => {
 
     it('should ignrore versions matching --ignore-version', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue(JSON.stringify(DEFAULT_NPM_OUTDATED));
+        spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
             ignoreVersions: ['-rc', '^.*beta.*$', '-alpha$'],
@@ -142,7 +142,7 @@ describe('update', () => {
 
     it('should ignrore packages matching --ignore-package', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue(JSON.stringify(DEFAULT_NPM_OUTDATED));
+        spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
             ignoreVersions: [],
@@ -165,7 +165,7 @@ describe('update', () => {
 
     it('should do nothing if all updates are ignored', async () => {
         spy.fs.readFileSync.mockReturnValue(JSON.stringify(DEFAULT_PACKAGE_JSON));
-        spy.cp.execSync.mockReturnValue(JSON.stringify(DEFAULT_NPM_OUTDATED));
+        spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
             ignoreVersions: ['.*'],

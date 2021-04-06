@@ -18,7 +18,11 @@ module.exports = function update(params) {
     const packages = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
     // Read each package status using `npm outdated` CLI
-    const stdout = cp.execSync('npm outdated --json --long', { encoding: 'utf8' });
+    // NB: returned status is purposely ignored since the command returns an error status
+    const { stdout, stderr } = cp.spawnSync('npm outdated --json --long', { encoding: 'utf8', shell: true });
+    if (stderr) {
+        throw new Error(`Command "npm outdated" returned an error:\n${stderr}`);
+    }
 
     // Filter and format results as an array of "flat" objects:
     // outdated = [{ type, current, latest, name }, ...]
