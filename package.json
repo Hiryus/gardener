@@ -1,6 +1,6 @@
 {
   "name": "@hiryus-org/gardener",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Automatically update dependencies.",
   "bin": {
     "gardener": "./sources/cli.js"
