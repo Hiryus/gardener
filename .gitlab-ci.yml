@@ -20,15 +20,11 @@ update:
     - package.json
     - package-lock.json
 
-lint:
-  stage: test
-  script:
-  - npm run lint
-
 test:
   stage: test
   script:
   - npm run test
+  - npm run lint
 
 release:
   stage: release
