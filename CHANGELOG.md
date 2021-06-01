@@ -1,3 +1,11 @@
+## [1.1.8](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.7...v1.1.8) (2021-06-01)
+
+
+### Bug Fixes
+
+* error when npm is not up to date ([3933f32](https://gitlab.com/hiryus-utils/gardener/commit/3933f324187acf410aba69924f983c6c614d2e56))
+* lint errors ([ac7f3d2](https://gitlab.com/hiryus-utils/gardener/commit/ac7f3d21388e7f2bc9ff9b1317c34b3f024ec0ab))
+
 ## [1.1.7](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.6...v1.1.7) (2021-05-31)
 
 ## [1.1.6](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.5...v1.1.6) (2021-05-24)
