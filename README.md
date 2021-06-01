@@ -31,9 +31,9 @@ NB: gardener requires node version 12 or greater.
 ## Configuration
 
 Usually, gardener is called from a regular CI / CD pipeline with the following sequential steps / jobs / stages:
-1. Update dependencies with `npx gardener update`.
+1. Update dependencies with `npx @hiryus-org/gardener update`.
 2. Run tests (we recommend to test different environments including LTS and latest nodejs versions).
-3. Commit changes `npx gardener commit`.
+3. Commit changes `npx @hiryus-org/gardener commit`.
 
 For each test, make sure to clone the repository on the branch you want to update (usually `master`).
 
