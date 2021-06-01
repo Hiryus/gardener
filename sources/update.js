@@ -19,7 +19,7 @@ module.exports = function update(params) {
 
     // Read each package status using `npm outdated` CLI
     // NB: returned status is purposely ignored since the command returns an error status
-    const { stdout, stderr } = cp.spawnSync('npm outdated --json --long', { encoding: 'utf8', shell: true });
+    const { stdout } = cp.spawnSync('npm outdated --json --long', { encoding: 'utf8', shell: true });
 
     // Filter and format results as an array of "flat" objects:
     // outdated = [{ type, current, latest, name }, ...]
