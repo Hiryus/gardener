@@ -44,6 +44,11 @@ module.exports = function update(params) {
     // Save changes in packages.json
     fs.writeFileSync('package.json', JSON.stringify(packages, null, 2), 'utf8');
 
-    // Install packages using `npm install` CLI
-    cp.execSync('npm install', { encoding: 'utf8' });
+    // Install packages using `npm install` CLI;
+    // NB: returned status is purposely ignored since the command can return an error status, even
+    // in case of success; instead, the output is parsed to find any error
+    const { output } = cp.spawnSync('npm install', { encoding: 'utf8', shell: true });
+    if (output && output.includes('npm ERR')) {
+        throw new Error(`The command "npm install" failed !\n${output}`);
+    }
 };
