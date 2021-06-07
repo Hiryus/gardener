@@ -1,3 +1,10 @@
+## [1.1.10](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.9...v1.1.10) (2021-06-07)
+
+
+### Bug Fixes
+
+* npm install failing the update job in some cases by returning an error status when everything is fine ([f8dbf87](https://gitlab.com/hiryus-utils/gardener/commit/f8dbf87ee4c158039f58acbb33a1c24b1eda62c9))
+
 ## [1.1.9](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.8...v1.1.9) (2021-06-07)
 
 ## [1.1.8](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.7...v1.1.8) (2021-06-01)
