@@ -1,3 +1,5 @@
+## [1.1.11](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.10...v1.1.11) (2021-06-21)
+
 ## [1.1.10](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.9...v1.1.10) (2021-06-07)
 
 
