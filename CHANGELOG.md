@@ -1,3 +1,10 @@
+## [1.2.1](https://gitlab.com/hiryus-utils/gardener/compare/v1.2.0...v1.2.1) (2021-09-18)
+
+
+### Bug Fixes
+
+* error introduced by last commit in update command ([6705ff0](https://gitlab.com/hiryus-utils/gardener/commit/6705ff056d2c1140518685691c4c1af90b9ac292))
+
 # [1.2.0](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.22...v1.2.0) (2021-09-18)
 
 
