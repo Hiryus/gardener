@@ -2,11 +2,11 @@ const cp = require('child_process');
 const fs = require('fs');
 
 function isIgnored(item, params) {
-    const ignoredPackage = params.ignorePackages.some((pattern) => {
+    const ignoredPackage = params.ignore.packages.some((pattern) => {
         const expr = new RegExp(pattern, 'i');
         return expr.test(item.name);
     });
-    const ignoredVersion = params.ignoreVersions.some((pattern) => {
+    const ignoredVersion = params.ignore.versions.some((pattern) => {
         const expr = new RegExp(pattern, 'i');
         return expr.test(item.latest);
     });

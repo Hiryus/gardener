@@ -70,8 +70,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
-            ignoreVersions: [],
-            ignorePackages: [],
+            ignore: {
+                versions: [],
+                packages: [],
+            },
         });
 
         const [filnename, contents] = spy.fs.writeFileSync.mock.calls[0];
@@ -96,8 +98,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
-            ignoreVersions: [],
-            ignorePackages: [],
+            ignore: {
+                versions: [],
+                packages: [],
+            },
         });
 
         const { name, version } = JSON.parse(spy.fs.writeFileSync.mock.calls[0][1]);
@@ -110,8 +114,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: '{}' });
 
         update({
-            ignoreVersions: [],
-            ignorePackages: [],
+            ignore: {
+                versions: [],
+                packages: [],
+            },
         });
 
         expect(spy.fs.writeFileSync).not.toHaveBeenCalled();
@@ -122,8 +128,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
-            ignoreVersions: ['-rc', '^.*beta.*$', '-alpha$'],
-            ignorePackages: [],
+            ignore: {
+                versions: ['-rc', '^.*beta.*$', '-alpha$'],
+                packages: [],
+            },
         });
 
         const contents = spy.fs.writeFileSync.mock.calls[0][1];
@@ -145,8 +153,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
-            ignoreVersions: [],
-            ignorePackages: ['lodash', '.*foo.*'],
+            ignore: {
+                versions: [],
+                packages: ['lodash', '.*foo.*'],
+            },
         });
 
         const contents = spy.fs.writeFileSync.mock.calls[0][1];
@@ -168,8 +178,10 @@ describe('update', () => {
         spy.cp.spawnSync.mockReturnValue({ stdout: JSON.stringify(DEFAULT_NPM_OUTDATED) });
 
         update({
-            ignoreVersions: ['.*'],
-            ignorePackages: [],
+            ignore: {
+                versions: ['.*'],
+                packages: [],
+            },
         });
 
         expect(spy.fs.writeFileSync).not.toHaveBeenCalled();
