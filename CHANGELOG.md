@@ -1,3 +1,10 @@
+## [1.2.2](https://gitlab.com/hiryus-utils/gardener/compare/v1.2.1...v1.2.2) (2021-09-18)
+
+
+### Bug Fixes
+
+* correctly throw error when npm install fails ([4a8bf08](https://gitlab.com/hiryus-utils/gardener/commit/4a8bf0862ac17ea2aea3e5c7605873dd11f96565))
+
 ## [1.2.1](https://gitlab.com/hiryus-utils/gardener/compare/v1.2.0...v1.2.1) (2021-09-18)
 
 
