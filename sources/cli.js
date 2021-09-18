@@ -1,17 +1,9 @@
 #!/usr/bin/env node
 
 const commit = require('./commit');
+const params = require('./defaults');
 const { HumanReadableError } = require('./errors');
 const update = require('./update');
-
-const params = {
-    ignoreVersions: [],
-    ignorePackages: [],
-
-    message: 'chore(deps): dependencies update [skip ci]',
-    username: 'gardener-bot',
-    email: '<>',
-};
 
 function parseValue(arg) {
     if (!arg.includes('=')) {
@@ -29,15 +21,20 @@ function main() {
         } else if (arg === 'commit') {
             command = commit;
         } else if (arg.startsWith('--ignore-version')) {
-            params.ignoreVersions.push(parseValue(arg));
+            params.ignore.versions.push(parseValue(arg));
         } else if (arg.startsWith('--ignore-package')) {
-            params.ignorePackages.push(parseValue(arg));
+            params.ignore.packages.push(parseValue(arg));
         } else if (arg.startsWith('--message')) {
-            params.message = parseValue(arg);
+            console.warn('--message option is deprecated. Please use --prod-message instead.');
+            params.commit.message.prod = parseValue(arg);
+        } else if (arg.startsWith('--prod-message')) {
+            params.commit.message.prod = parseValue(arg);
+        } else if (arg.startsWith('--dev-message')) {
+            params.commit.message.dev = parseValue(arg);
         } else if (arg.startsWith('--username')) {
-            params.username = parseValue(arg);
+            params.commit.username = parseValue(arg);
         } else if (arg.startsWith('--email')) {
-            params.email = parseValue(arg);
+            params.commit.email = parseValue(arg);
         } else {
             throw new HumanReadableError(`Unknown argument "${arg}".`);
         }

@@ -1,7 +1,10 @@
 {
     "plugins": [
         ["@semantic-release/commit-analyzer", {
-            "releaseRules": [{ "type": "chore", "scope": "deps", "release": "patch" }]
+            "releaseRules": [
+                { "type": "build", "scope": "dev", "release": false },
+                { "type": "build", "scope": "prod", "release": "patch" }
+            ]
         }],
         ["@semantic-release/release-notes-generator"],
         ["@semantic-release/changelog"],

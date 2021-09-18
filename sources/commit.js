@@ -1,22 +1,33 @@
 const cp = require('child_process');
+const fs = require('fs');
+const _ = require('lodash');
+
+const git = require('./git');
 
 module.exports = function commit(params) {
-    const stdout = cp.execSync('git status package.json --porcelain=v2', { encoding: 'utf8' });
-    if (stdout.trim().length === 0) {
+    const state = {
+        previous: JSON.parse(cp.execSync('git show HEAD:package.json', { encoding: 'utf8' })),
+        current: JSON.parse(fs.readFileSync('package.json', 'utf8')),
+    };
+
+    const prodDepChanged = !_.isEqual(state.previous.dependencies, state.current.dependencies);
+    const devDepChanged = !_.isEqual(state.previous.devDependencies, state.current.devDependencies);
+
+    if (prodDepChanged || devDepChanged) {
+        console.log('Dependencies update detected, committing changes...');
+
+        const message = prodDepChanged ? params.commit.message.prod : params.commit.message.dev;
+
+        git.add('package.json', 'package-lock.json');
+        git.config(params.commit.username, params.commit.email);
+        git.commit(message);
+
+        const hash = git.getCommitHash('HEAD');
+
+        console.log(`  Hash: "${hash}"`);
+        console.log(`  Message: "${message}"`);
+        console.log(`  Author: "${params.commit.username} <${params.commit.email}>"`);
+    } else {
         console.log('No package update available - commit skipped.');
-        return;
     }
-
-    console.log('Dependencies update detected, committing packages changes...');
-
-    cp.execSync('git add package.json package-lock.json');
-    cp.execSync(`git config user.name "${params.username}"`);
-    cp.execSync(`git config user.email "${params.email}"`);
-    cp.execSync(`git commit --message "${params.message}"`);
-
-    const hash = cp.execSync('git log --format="%H" -n 1', { encoding: 'utf8' });
-
-    console.log(`  Hash: "${hash.trim()}"`);
-    console.log(`  Message: "${params.message}"`);
-    console.log(`  Author: "${params.username} <${params.email}>"`);
 };
