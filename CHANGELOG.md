@@ -1,3 +1,10 @@
+# [1.2.0](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.22...v1.2.0) (2021-09-18)
+
+
+### Features
+
+* allow different commit messages when production or development dependencies are updated ([7dc72d5](https://gitlab.com/hiryus-utils/gardener/commit/7dc72d57ce5998d79197935f42535a9c33a3b544))
+
 ## [1.1.22](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.21...v1.1.22) (2021-09-13)
 
 ## [1.1.21](https://gitlab.com/hiryus-utils/gardener/compare/v1.1.20...v1.1.21) (2021-09-06)
