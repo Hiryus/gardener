@@ -79,7 +79,7 @@ describe('update', () => {
         const [filnename, contents] = spy.fs.writeFileSync.mock.calls[0];
         const { dependencies, devDependencies } = JSON.parse(contents);
 
-        expect(filnename).toEqual('package.json');
+        expect(filnename).toBe('package.json');
         expect(spy.fs.writeFileSync).toBeCalledTimes(1);
 
         expect(dependencies).toEqual({
